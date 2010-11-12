@@ -3,3 +3,11 @@ Torresmos.TV
 
 Stuff will happen here. Follow @torresmos_tv for updates to this project.
 
+
+Dependencies
+------------
+
+To install the project dependencies, use:
+
+    perl Makefile.PL
+    make installdeps
