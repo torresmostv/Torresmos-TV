@@ -11,3 +11,16 @@ To install the project dependencies, use:
 
     perl Makefile.PL
     make installdeps
+
+
+Directory layout
+----------------
+
+The project is organized as follows:
+
+ * static assets: `assets/`
+ * sites: `sites/SITE_NAME`
+ * servers, nodes: `sbin/`
+ * library files: `lib/`
+ * tests: `t/`
+ * other documentation: `docs/`
