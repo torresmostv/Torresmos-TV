@@ -83,3 +83,18 @@ CREATE TABLE seen (
   CONSTRAINT seen_user_id_fk FOREIGN KEY (user_id)  REFERENCES users (user_id),
   CONSTRAINT seen_epi_id_fk  FOREIGN KEY (episode_id)  REFERENCES episodes (episode_id)
 ) ENGINE=InnoDB COMMENT "Keeps track of which episodes each user has seen and when";
+
+
+/* Metadata */
+
+CREATE TABLE metadata (
+  meta_id    INTEGER NOT NULL AUTO_INCREMENT,
+  obj_id     INTEGER NOT NULL,
+  obj_type   TINYINT NOT NULL COMMENT "Type of object ID: 0 => shows, 1 => sets, 2 => episodes",
+
+  source     VARCHAR(64) NOT NULL COMMENT "Source for this metadata blob (ex. RageTV, IMDB, etc)",
+  meta       TEXT        NOT NULL COMMENT "JSON blob with metadata",
+
+  PRIMARY KEY (meta_id),
+  UNIQUE meta_obj_source_un (obj_id, obj_type, source)
+) ENGINE=InnoDB COMMENT "JSON-based metadata";
