@@ -1,0 +1,151 @@
+JSON API
+--------
+
+GET /api/1/shows
+--------------
+
+Lists all shows.
+
+### Parameters ###
+
+None.
+
+### Result ###
+
+    {
+      "shows": [
+        {
+          "short_name": "house",
+          "name": "House MD"
+        },
+        {
+          "short_name": "greys_anatomy",
+          "name": "Greys Anatomy"
+        },
+        {
+          "short_name": "the_big_bang_theory",
+          "name": "The Big Bang Theory"
+        }
+      ]
+    }
+
+
+GET /api/1/show/NAME
+--------------------
+
+Get more information about a specific show.
+
+
+### Parameters ###
+
+ * `NAME`: the `short_name` key for the show obtained via the `/api/1/shows` API.
+
+### Result ###
+
+    {
+      "show": {
+          "short_name": "house",
+          "name": "House MD",
+          "subscriber_count": 5,
+          "episode_count": 48,
+          "last_episode_at": "2010/11/04",
+          "next_episode_at": "2010/11/11",
+          "meta": {
+            ... 
+          }
+        }
+      }
+    }
+
+
+GET /api/1/show/NAME/sets
+-------------------------
+
+Lists all season for a specific show.
+
+### Parameters ###
+
+  * `NAME`: the `short_name` key for the show obtained via the `/api/1/shows` API.
+
+### Result ###
+
+    {
+      "sets": [
+        {
+          "set_id": 312213,
+          "name": "Season 1",
+          "type": "R"
+        },
+        {
+          "set_id": 312214,
+          "name": "Season 2",
+          "type": "R"
+        },
+        {
+          "set_id": 312215,
+          "name": "Season 3",
+          "type": "R"
+        },
+        {
+          "set_id": 312216,
+          "name": "Specials",
+          "type": "S"
+        }
+      ]
+    }
+
+
+GET /api/1/set/ID/episodes
+--------------------------
+
+Lists all the episodes for a specific set ID.
+
+### Parameters ###
+
+ * `ID`: the ID of the set, obtained with the `/api/1/show/NAME/sets` API.
+
+### Returns ###
+
+    {
+      "episodes": [
+        {
+          "episode_id": 312213,
+          "name": "1",
+          "rank": "1",
+          "air_date": "2010/11/04"
+        },
+        {
+          "episode_id": 312214,
+          "name": "2",
+          "rank": "2",
+          "air_date": "2010/11/11"
+        },
+        {
+          "episode_id": 312215,
+          "name": "3",
+          "rank": "3",
+          "air_date": "2010/11/18"
+        }
+      ]
+    }
+
+
+GET /api/1/episode/ID
+--------------------------
+
+Get all the information about episode ID.
+
+### Parameters ###
+
+ * `ID`: the ID of the episode, obtained with the `/api/1/set/ID/episodes` API.
+
+### Returns ###
+
+    {
+      "episode": {
+          "episode_id": 312213,
+          "name": "1",
+          "rank": "1",
+          "air_date": "2010/11/04"
+      },
+    }
