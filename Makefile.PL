@@ -8,10 +8,11 @@ license 'artistic2';
 perl_version '5.008';
 
 # Specific dependencies
-requires 'AnyEvent'       => 0;
-requires 'AnyEvent::HTTP' => 0;
-requires 'JSON'           => 0;
-requires 'Moose'          => 0;
+requires 'AnyEvent'           => 0;
+requires 'AnyEvent::HTTP'     => 0;
+requires 'JSON'               => 0;
+requires 'Method::Signatures' => 0;
+requires 'Moose'              => 0;
 
 recommends 'JSON::XS' => 0;
 
