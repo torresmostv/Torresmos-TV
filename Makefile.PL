@@ -14,6 +14,9 @@ requires 'JSON'               => 0;
 requires 'Method::Signatures' => 0;
 requires 'Moose'              => 0;
 
+test_requires 'Test::More' => '0.96';
+test_requires 'Test::Compile' => 0;
+
 recommends 'JSON::XS' => 0;
 
 
